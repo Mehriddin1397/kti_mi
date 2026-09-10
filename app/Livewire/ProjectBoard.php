@@ -134,7 +134,7 @@ class ProjectBoard extends Component
         $applicant = $task->stage->project->user;
         app(SmsServiceInterface::class)->send(
             $applicant->phone,
-            "Hujjat rad etildi: \"{$task->name}\". Sabab: {$this->rejectComment}",
+            'Hurmatli mustaqil izlanuvchi! Hujjatingiz rad etildi. Batafsil malumot shaxsiy kabinetingizda.',
             $applicant
         );
 
