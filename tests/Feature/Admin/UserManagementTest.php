@@ -36,6 +36,7 @@ class UserManagementTest extends TestCase
         $this->assertNotNull($user);
         $this->assertTrue($user->hasRole(Roles::MASUL_XODIM));
         $this->assertTrue($user->is_active);
+        $this->assertSame('staff12345', $user->initial_password);
     }
 
     public function test_non_admin_cannot_access_admin_panel(): void

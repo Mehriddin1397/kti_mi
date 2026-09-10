@@ -50,6 +50,7 @@ class UserController extends Controller
             'full_name' => $validated['full_name'],
             'phone' => $validated['phone'],
             'password' => Hash::make($password),
+            'initial_password' => $password,
             'is_active' => true,
         ]);
 
@@ -86,6 +87,7 @@ class UserController extends Controller
 
         if (! empty($validated['password'])) {
             $user->password = Hash::make($validated['password']);
+            $user->initial_password = $validated['password'];
         }
 
         $user->save();
