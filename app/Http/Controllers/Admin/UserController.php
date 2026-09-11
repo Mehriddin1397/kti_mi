@@ -56,7 +56,7 @@ class UserController extends Controller
 
         $user->assignRole($validated['role']);
 
-        $message = "Hurmatli mustaqil izlanuvchi! Siz uchun platformada shaxsiy kabinet yaratildi.Login: {$user->phone} Parol: {$password} Platforma:https://ilm.uzkti.uz Iltimos, login va parolingizni begona shaxslarga bermang.";
+        $message = "Hurmatli mustaqil izlanuvchi! Siz uchun platformada shaxsiy kabinet yaratildi. Login: {$user->phone} Parol: {$password} Platforma: https://ilm.uzkti.uz Iltimos, login va parolingizni begona shaxslarga bermang.";
         $sms->send($user->phone, $message, $user);
 
         return redirect()->route('admin.users.index')
