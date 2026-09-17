@@ -82,7 +82,7 @@
                                             </div>
                                             <div>
                                                 <div class="font-semibold text-slate-800 text-xs">{{ $project->user->full_name }}</div>
-                                                <div class="font-mono text-[11px] text-slate-400 mt-0.5">{{ $project->phone }}</div>
+                                                <div class="font-mono text-xs text-slate-400 mt-0.5">{{ $project->phone }}</div>
                                             </div>
                                         </div>
                                     </td>

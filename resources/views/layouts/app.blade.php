@@ -15,7 +15,16 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased bg-slate-50 text-slate-800 min-h-full flex flex-col selection:bg-indigo-500 selection:text-white">
+    <body class="font-sans antialiased text-slate-800 min-h-full flex flex-col selection:bg-indigo-500 selection:text-white">
+        <!-- Institut muhiti: bino, hovli va zal fotolari asta almashadigan xira fon -->
+        <div class="site-bg-slideshow" aria-hidden="true">
+            <div class="site-bg-slide" style="background-image: url('{{ asset('img/building-day.jpg') }}');"></div>
+            <div class="site-bg-slide" style="background-image: url('{{ asset('img/courtyard.jpg') }}');"></div>
+            <div class="site-bg-slide" style="background-image: url('{{ asset('img/hall.jpg') }}');"></div>
+            <div class="site-bg-slide" style="background-image: url('{{ asset('img/building-night.jpg') }}');"></div>
+            <div class="site-bg-overlay site-bg-overlay--light"></div>
+        </div>
+
         <div class="min-h-screen flex flex-col">
             @include('layouts.navigation')
 
@@ -76,10 +85,10 @@
             </main>
 
             <!-- Footer -->
-            <footer class="mt-auto bg-white border-t border-slate-200/80 py-6 text-slate-500 text-xs">
+            <footer class="mt-auto bg-white border-t border-slate-200/80 py-6 text-slate-500 text-sm">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
                     <div class="flex items-center gap-3">
-                        <img src="{{ asset('logo/photo_2025-09-03_15-19-21.jpg') }}" alt="Logo" class="w-7 h-7 rounded-full ring-1 ring-amber-500/30" />
+                        <img src="{{ asset('img/logo-seal.jpg') }}" alt="Logo" class="w-9 h-9 rounded-full ring-1 ring-amber-500/30" />
                         <div>
                             <span class="font-bold text-slate-800">O'zbekiston Respublikasi IIV Kriminologiya tadqiqot instituti</span>
                             <span class="hidden sm:inline text-slate-400 mx-1.5">&bull;</span>

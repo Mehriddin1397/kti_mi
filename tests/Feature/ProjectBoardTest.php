@@ -150,4 +150,87 @@ class ProjectBoardTest extends TestCase
             ->call('approve', $task->id)
             ->assertForbidden();
     }
+
+    public function test_second_stage_is_locked_until_the_first_stage_is_fully_approved(): void
+    {
+        $applicant = User::factory()->create();
+        $applicant->assignRole(Roles::IZLANUVCHI);
+
+        $staff = User::factory()->create();
+        $staff->assignRole(Roles::MASUL_XODIM);
+
+        $type = ApplicationType::create(['name' => 'Test turi', 'is_active' => true]);
+
+        $project = Project::create([
+            'application_type_id' => $type->id,
+            'user_id' => $applicant->id,
+            'full_name' => $applicant->full_name,
+            'phone' => $applicant->phone,
+            'status' => 'jarayonda',
+            'progress_percent' => 0,
+        ]);
+
+        $stage1 = ProjectStage::create([
+            'project_id' => $project->id,
+            'name' => 'Bosqich 1',
+            'order' => 1,
+            'status' => 'kutilmoqda',
+        ]);
+
+        $stage2 = ProjectStage::create([
+            'project_id' => $project->id,
+            'name' => 'Bosqich 2',
+            'order' => 2,
+            'status' => 'kutilmoqda',
+        ]);
+
+        $task1 = ProjectTask::create([
+            'project_stage_id' => $stage1->id,
+            'name' => '1-bosqich vazifasi',
+            'responsible_user_id' => $staff->id,
+            'status' => 'kutilmoqda',
+            'order' => 1,
+        ]);
+
+        $task2 = ProjectTask::create([
+            'project_stage_id' => $stage2->id,
+            'name' => '2-bosqich vazifasi',
+            'responsible_user_id' => $staff->id,
+            'status' => 'kutilmoqda',
+            'order' => 1,
+        ]);
+
+        $this->assertTrue($stage1->isUnlocked());
+        $this->assertFalse($stage2->isUnlocked());
+
+        // Applicant cannot upload into the locked (second) stage yet.
+        Livewire::actingAs($applicant)
+            ->test(ProjectBoard::class, ['project' => $project])
+            ->set('file', UploadedFile::fake()->create('hujjat.pdf', 100))
+            ->call('uploadDocument', $task2->id)
+            ->assertForbidden();
+
+        // Applicant completes the first stage's only task.
+        Livewire::actingAs($applicant)
+            ->test(ProjectBoard::class, ['project' => $project])
+            ->set('file', UploadedFile::fake()->create('hujjat.pdf', 100))
+            ->call('uploadDocument', $task1->id)
+            ->assertHasNoErrors();
+
+        Livewire::actingAs($staff)
+            ->test(ProjectBoard::class, ['project' => $project])
+            ->call('approve', $task1->id)
+            ->assertHasNoErrors();
+
+        $this->assertTrue($stage2->fresh()->isUnlocked());
+
+        // Now the second stage accepts uploads.
+        Livewire::actingAs($applicant)
+            ->test(ProjectBoard::class, ['project' => $project])
+            ->set('file', UploadedFile::fake()->create('hujjat2.pdf', 100))
+            ->call('uploadDocument', $task2->id)
+            ->assertHasNoErrors();
+
+        $this->assertSame('jarayonda', $task2->fresh()->status);
+    }
 }

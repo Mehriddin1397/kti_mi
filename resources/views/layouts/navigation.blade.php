@@ -87,7 +87,7 @@
                             </div>
                             <div class="flex flex-col text-left">
                                 <span class="font-semibold text-xs text-slate-800 leading-snug">{{ Auth::user()->full_name }}</span>
-                                <span class="text-[10px] text-slate-400 font-mono">{{ Auth::user()->phone }}</span>
+                                <span class="text-xs text-slate-400 font-mono">{{ Auth::user()->phone }}</span>
                             </div>
                             <svg class="w-4 h-4 text-slate-400 ms-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -100,7 +100,7 @@
                             <p class="text-xs font-semibold text-slate-900 leading-tight">{{ Auth::user()->full_name }}</p>
                             <p class="text-xs text-slate-500 font-mono mt-0.5">{{ Auth::user()->phone }}</p>
                             <div class="mt-2">
-                                <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-medium border {{ $roleBadgeStyle }}">
+                                <span class="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium border {{ $roleBadgeStyle }}">
                                     {{ $roleLabel }}
                                 </span>
                             </div>

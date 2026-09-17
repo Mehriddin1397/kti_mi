@@ -54,7 +54,7 @@
                                         @if ($type->description)
                                             <p class="text-xs text-slate-500 mt-1 leading-relaxed">{{ $type->description }}</p>
                                         @endif
-                                        <div class="mt-2.5 flex items-center gap-4 text-[11px] text-slate-400">
+                                        <div class="mt-2.5 flex items-center gap-4 text-xs text-slate-400">
                                             <span class="inline-flex items-center gap-1">
                                                 <svg class="w-3.5 h-3.5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -87,7 +87,7 @@
                                     <div>
                                         <x-input-label for="phone_{{ $type->id }}" value="Aloqa uchun telefon raqamingiz" />
                                         <x-text-input id="phone_{{ $type->id }}" name="phone" class="block w-full" :value="old('phone', auth()->user()->phone)" required />
-                                        <p class="text-[11px] text-slate-400 mt-1">Ushbu raqamga arizangiz ko'rib chiqilishi bo'yicha SMS xabarlar yuboriladi.</p>
+                                        <p class="text-xs text-slate-400 mt-1">Ushbu raqamga arizangiz ko'rib chiqilishi bo'yicha SMS xabarlar yuboriladi.</p>
                                     </div>
 
                                     <div class="pt-2 flex items-center gap-3">

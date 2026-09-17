@@ -50,7 +50,7 @@
                                 </div>
                                 <input type="text" name="name" value="{{ $stage->name }}" class="border-slate-300 rounded-xl text-xs flex-1 min-w-[200px] focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/15" placeholder="Bosqich nomi">
                                 <div class="flex items-center gap-1.5">
-                                    <label class="text-[11px] text-slate-400 font-medium">Tartib:</label>
+                                    <label class="text-xs text-slate-400 font-medium">Tartib:</label>
                                     <input type="number" name="order" value="{{ $stage->order }}" class="border-slate-300 rounded-xl text-xs w-16 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/15">
                                 </div>
                                 <button type="submit" class="px-3 py-1.5 bg-indigo-50 hover:bg-indigo-600 text-indigo-700 hover:text-white rounded-xl text-xs font-semibold transition cursor-pointer">
@@ -88,7 +88,7 @@
                                     <div class="flex justify-end mt-1">
                                         <form method="POST" action="{{ route('admin.tasks.destroy', $task) }}" class="inline" onsubmit="return confirm('Ushbu vazifani o\'chirishni tasdiqlaysizmi?')">
                                             @csrf @method('DELETE')
-                                            <button type="submit" class="text-[11px] text-rose-500 hover:text-rose-700 hover:underline cursor-pointer">
+                                            <button type="submit" class="text-xs text-rose-500 hover:text-rose-700 hover:underline cursor-pointer">
                                                 Vazifani o'chirish
                                             </button>
                                         </form>

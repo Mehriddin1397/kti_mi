@@ -30,7 +30,7 @@
                         <x-input-label for="phone" value="Telefon raqam (login sifatida ishlatiladi) *" />
                         <x-text-input id="phone" name="phone" class="block w-full" :value="old('phone')" placeholder="+998901234567" required />
                         <x-input-error :messages="$errors->get('phone')" class="mt-1.5" />
-                        <p class="text-[11px] text-slate-400 mt-1">Ushbu raqam orqali foydalanuvchi tizimga kiradi.</p>
+                        <p class="text-xs text-slate-400 mt-1">Ushbu raqam orqali foydalanuvchi tizimga kiradi.</p>
                     </div>
 
                     <div>

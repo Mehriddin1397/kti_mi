@@ -20,7 +20,8 @@
         <div class="max-w-7xl mx-auto space-y-6">
 
             <!-- Hero Welcome Card -->
-            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-indigo-900 via-indigo-800 to-blue-800 text-white p-6 sm:p-8 shadow-xl shadow-indigo-900/20">
+            <div class="relative overflow-hidden rounded-3xl text-white p-6 sm:p-8 shadow-xl shadow-indigo-900/20 bg-institute-photo" style="background-image: url('{{ asset('img/building-night.jpg') }}');">
+                <div class="absolute inset-0 bg-gradient-to-r from-indigo-950/95 via-indigo-900/90 to-blue-900/80"></div>
                 <div class="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                     <div class="max-w-xl">
                         <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/15 backdrop-blur-md text-amber-200 mb-3 border border-white/10">
@@ -55,9 +56,9 @@
                     </div>
                 </div>
 
-                <!-- Institute logo watermark in hero card background -->
-                <div class="absolute -right-6 -bottom-6 w-56 h-56 rounded-full overflow-hidden opacity-10 pointer-events-none">
-                    <img src="{{ asset('logo/photo_2025-09-03_15-19-21.jpg') }}" alt="Watermark" class="w-full h-full object-cover" />
+                <!-- Institute seal watermark -->
+                <div class="absolute right-4 bottom-4 z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden ring-2 ring-white/40 shadow-lg opacity-90 pointer-events-none bg-white p-0.5">
+                    <img src="{{ asset('img/logo-seal.jpg') }}" alt="Institut logosi" class="w-full h-full object-cover rounded-full" />
                 </div>
             </div>
 

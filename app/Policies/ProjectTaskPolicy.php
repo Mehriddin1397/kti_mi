@@ -17,7 +17,13 @@ class ProjectTaskPolicy
             return true;
         }
 
-        return $task->stage->project->user_id === $user->id;
+        if ($task->stage->project->user_id !== $user->id) {
+            return false;
+        }
+
+        // Stages must be completed in order: no uploads for a stage until
+        // every earlier stage of the project is fully approved.
+        return $task->stage->isUnlocked();
     }
 
     /**

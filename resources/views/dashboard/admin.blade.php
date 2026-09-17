@@ -27,6 +27,18 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto space-y-6">
 
+            <!-- Institute Hero Banner -->
+            <div class="relative overflow-hidden rounded-3xl text-white p-6 sm:p-8 shadow-xl shadow-slate-900/20 bg-institute-photo" style="background-image: url('{{ asset('img/courtyard.jpg') }}');">
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/75 to-slate-900/40"></div>
+                <div class="relative z-10 flex items-center gap-4">
+                    <img src="{{ asset('img/logo-seal.jpg') }}" alt="Institut logosi" class="w-14 h-14 sm:w-16 sm:h-16 rounded-full ring-2 ring-white/50 shadow-lg bg-white p-0.5 shrink-0" />
+                    <div>
+                        <span class="text-xs sm:text-sm font-semibold text-amber-300 uppercase tracking-wider">O'zbekiston Respublikasi IIV</span>
+                        <h2 class="text-xl sm:text-2xl font-bold tracking-tight">Kriminologiya tadqiqot instituti — Ma'muriy boshqaruv</h2>
+                    </div>
+                </div>
+            </div>
+
             <!-- Stats Metric Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Total Projects -->
@@ -40,7 +52,7 @@
                         </div>
                     </div>
                     <p class="text-3xl font-bold text-slate-900 mt-2">{{ $totalProjects }}</p>
-                    <div class="mt-2 flex items-center text-[11px] text-slate-400">
+                    <div class="mt-2 flex items-center text-xs text-slate-400">
                         <span>Barcha topshirilgan ilmiy arizalar</span>
                     </div>
                 </div>
@@ -56,7 +68,7 @@
                         </div>
                     </div>
                     <p class="text-3xl font-bold text-blue-600 mt-2">{{ $activeProjects }}</p>
-                    <div class="mt-2 flex items-center text-[11px] text-slate-400">
+                    <div class="mt-2 flex items-center text-xs text-slate-400">
                         <span>Ijro bosqichidagi arizalar</span>
                     </div>
                 </div>
@@ -72,7 +84,7 @@
                         </div>
                     </div>
                     <p class="text-3xl font-bold text-emerald-600 mt-2">{{ $finishedProjects }}</p>
-                    <div class="mt-2 flex items-center text-[11px] text-slate-400">
+                    <div class="mt-2 flex items-center text-xs text-slate-400">
                         <span>Muvaffaqiyatli yakunlangan</span>
                     </div>
                 </div>
@@ -88,7 +100,7 @@
                         </div>
                     </div>
                     <p class="text-3xl font-bold text-slate-900 mt-2">{{ $totalUsers }}</p>
-                    <div class="mt-2 flex items-center text-[11px] text-slate-400">
+                    <div class="mt-2 flex items-center text-xs text-slate-400">
                         <span>Izlanuvchilar va xodimlar</span>
                     </div>
                 </div>
@@ -130,7 +142,7 @@
                                             </div>
                                             <div>
                                                 <div class="font-semibold text-slate-800 text-xs">{{ $project->user->full_name }}</div>
-                                                <div class="font-mono text-[11px] text-slate-400 mt-0.5">{{ $project->phone }}</div>
+                                                <div class="font-mono text-xs text-slate-400 mt-0.5">{{ $project->phone }}</div>
                                             </div>
                                         </div>
                                     </td>

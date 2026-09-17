@@ -70,7 +70,7 @@
                                         {{ $user->phone }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        <span class="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-semibold border {{ $userRoleBadge }}">
+                                        <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold border {{ $userRoleBadge }}">
                                             {{ $roles[$userRoleName] ?? '—' }}
                                         </span>
                                     </td>

@@ -17,6 +17,18 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto space-y-6">
 
+            <!-- Institute Hero Banner -->
+            <div class="relative overflow-hidden rounded-3xl text-white p-6 sm:p-8 shadow-xl shadow-slate-900/20 bg-institute-photo" style="background-image: url('{{ asset('img/hall.jpg') }}');">
+                <div class="absolute inset-0 bg-gradient-to-r from-indigo-950/90 via-slate-900/75 to-slate-900/40"></div>
+                <div class="relative z-10 flex items-center gap-4">
+                    <img src="{{ asset('img/logo-seal.jpg') }}" alt="Institut logosi" class="w-14 h-14 sm:w-16 sm:h-16 rounded-full ring-2 ring-white/50 shadow-lg bg-white p-0.5 shrink-0" />
+                    <div>
+                        <span class="text-xs sm:text-sm font-semibold text-amber-300 uppercase tracking-wider">O'zbekiston Respublikasi IIV</span>
+                        <h2 class="text-xl sm:text-2xl font-bold tracking-tight">Kriminologiya tadqiqot instituti — Ekspertiza bo'limi</h2>
+                    </div>
+                </div>
+            </div>
+
             <!-- Stats Overview Cards -->
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 <div class="bg-white rounded-3xl border border-slate-200/80 p-5 shadow-xs">
@@ -29,7 +41,7 @@
                         </div>
                     </div>
                     <p class="text-2xl font-bold text-amber-600 mt-2">{{ $counts['jarayonda'] }}</p>
-                    <p class="text-[11px] text-slate-400 mt-1">Hujjat yuklangan, ko'rib chiqish kerak</p>
+                    <p class="text-xs text-slate-400 mt-1">Hujjat yuklangan, ko'rib chiqish kerak</p>
                 </div>
 
                 <div class="bg-white rounded-3xl border border-slate-200/80 p-5 shadow-xs">
@@ -42,7 +54,7 @@
                         </div>
                     </div>
                     <p class="text-2xl font-bold text-slate-800 mt-2">{{ $counts['kutilmoqda'] }}</p>
-                    <p class="text-[11px] text-slate-400 mt-1">Izlanuvchi yuklashi lozim</p>
+                    <p class="text-xs text-slate-400 mt-1">Izlanuvchi yuklashi lozim</p>
                 </div>
 
                 <div class="bg-white rounded-3xl border border-slate-200/80 p-5 shadow-xs">
@@ -55,7 +67,7 @@
                         </div>
                     </div>
                     <p class="text-2xl font-bold text-rose-600 mt-2">{{ $counts['qaytarildi'] }}</p>
-                    <p class="text-[11px] text-slate-400 mt-1">Kamchiliklar bilan qaytarilgan</p>
+                    <p class="text-xs text-slate-400 mt-1">Kamchiliklar bilan qaytarilgan</p>
                 </div>
 
                 <div class="bg-white rounded-3xl border border-slate-200/80 p-5 shadow-xs">
@@ -68,7 +80,7 @@
                         </div>
                     </div>
                     <p class="text-2xl font-bold text-emerald-600 mt-2">{{ $counts['tasdiqlandi'] }}</p>
-                    <p class="text-[11px] text-slate-400 mt-1">Muvaffaqiyatli qabul qilingan</p>
+                    <p class="text-xs text-slate-400 mt-1">Muvaffaqiyatli qabul qilingan</p>
                 </div>
             </div>
 
@@ -79,12 +91,12 @@
                 @endphp
                 <a href="{{ route('dashboard') }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition {{ !$currentStatus ? 'bg-indigo-600 text-white shadow-xs' : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80' }}">
                     <span>Barchasi</span>
-                    <span class="px-1.5 py-0.5 rounded-full text-[10px] {{ !$currentStatus ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-700' }}">{{ $allTotal }}</span>
+                    <span class="px-1.5 py-0.5 rounded-full text-xs {{ !$currentStatus ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-700' }}">{{ $allTotal }}</span>
                 </a>
                 @foreach (['jarayonda' => 'Jarayonda (Tekshirish)', 'kutilmoqda' => 'Hujjat kutilmoqda', 'qaytarildi' => 'Qaytarildi', 'tasdiqlandi' => 'Tasdiqlandi'] as $key => $label)
                     <a href="{{ route('dashboard', ['status' => $key]) }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition {{ $currentStatus === $key ? 'bg-indigo-600 text-white shadow-xs' : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80' }}">
                         <span>{{ $label }}</span>
-                        <span class="px-1.5 py-0.5 rounded-full text-[10px] {{ $currentStatus === $key ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-700' }}">{{ $counts[$key] }}</span>
+                        <span class="px-1.5 py-0.5 rounded-full text-xs {{ $currentStatus === $key ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-700' }}">{{ $counts[$key] }}</span>
                     </a>
                 @endforeach
             </div>
@@ -119,7 +131,7 @@
                                             </div>
                                             <div>
                                                 <div class="font-medium text-slate-800 text-xs">{{ $task->stage->project->user->full_name }}</div>
-                                                <div class="font-mono text-[11px] text-slate-400 mt-0.5">{{ $task->stage->project->phone }}</div>
+                                                <div class="font-mono text-xs text-slate-400 mt-0.5">{{ $task->stage->project->phone }}</div>
                                             </div>
                                         </div>
                                     </td>

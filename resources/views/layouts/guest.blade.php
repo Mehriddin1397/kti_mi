@@ -15,38 +15,43 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased bg-slate-100/80 text-slate-800 min-h-full flex flex-col justify-center relative selection:bg-indigo-500 selection:text-white py-10">
-        <!-- Background decorative elements -->
-        <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10">
-            <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-indigo-200/40 blur-3xl"></div>
-            <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-amber-200/30 blur-3xl"></div>
+    <body class="font-sans antialiased bg-slate-900 text-slate-800 min-h-full flex flex-col justify-center relative selection:bg-indigo-500 selection:text-white py-10">
+        <!-- Institut muhiti: bino, hovli va zal fotolari asta almashadigan fon -->
+        <div class="site-bg-slideshow" aria-hidden="true">
+            <div class="site-bg-slide" style="background-image: url('{{ asset('img/building-day.jpg') }}');"></div>
+            <div class="site-bg-slide" style="background-image: url('{{ asset('img/courtyard.jpg') }}');"></div>
+            <div class="site-bg-slide" style="background-image: url('{{ asset('img/hall.jpg') }}');"></div>
+            <div class="site-bg-slide" style="background-image: url('{{ asset('img/building-night.jpg') }}');"></div>
+            <div class="site-bg-overlay site-bg-overlay--dark"></div>
+            <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-indigo-500/20 blur-3xl"></div>
+            <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-amber-400/10 blur-3xl"></div>
         </div>
 
         <div class="w-full max-w-md mx-auto px-4">
             <!-- Brand Header -->
             <div class="flex flex-col items-center text-center mb-6">
-                <a href="/" class="focus:outline-none focus:ring-4 focus:ring-amber-500/20 rounded-full transition-transform hover:scale-105 duration-200">
-                    <div class="w-20 h-20 rounded-full overflow-hidden ring-4 ring-white shadow-xl shadow-slate-300/60 bg-white p-0.5">
-                        <img src="{{ asset('logo/photo_2025-09-03_15-19-21.jpg') }}" alt="Kriminologiya tadqiqot instituti logosi" class="w-full h-full object-cover rounded-full" />
+                <a href="/" class="focus:outline-none focus:ring-4 focus:ring-amber-500/30 rounded-full transition-transform hover:scale-105 duration-200">
+                    <div class="w-24 h-24 rounded-full overflow-hidden ring-4 ring-white/90 shadow-xl shadow-black/30 bg-white p-1">
+                        <img src="{{ asset('img/logo-seal.jpg') }}" alt="Kriminologiya tadqiqot instituti logosi" class="w-full h-full object-cover rounded-full" />
                     </div>
                 </a>
-                <span class="text-xs font-semibold text-indigo-700 tracking-wider uppercase mt-3.5">
+                <span class="text-sm font-semibold text-amber-300 tracking-wider uppercase mt-4">
                     O'zbekiston Respublikasi IIV
                 </span>
-                <h1 class="font-bold text-lg text-slate-900 leading-snug mt-0.5">
+                <h1 class="font-bold text-2xl text-white leading-snug mt-1 drop-shadow-sm">
                     Kriminologiya tadqiqot instituti
                 </h1>
-                <p class="text-xs text-slate-500">
+                <p class="text-sm text-slate-200">
                     Mustaqil izlanuvchilar monitoring axborot tizimi
                 </p>
             </div>
 
             <!-- Card Box -->
-            <div class="bg-white/95 backdrop-blur-md rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/50 p-7 sm:p-9">
+            <div class="bg-white/97 backdrop-blur-md rounded-3xl border border-white/50 shadow-2xl shadow-black/40 p-7 sm:p-9">
                 {{ $slot }}
             </div>
 
-            <div class="mt-8 text-center text-xs text-slate-400">
+            <div class="mt-8 text-center text-sm text-slate-300">
                 O'zbekiston Respublikasi IIV Kriminologiya tadqiqot instituti &copy; {{ date('Y') }}
             </div>
         </div>

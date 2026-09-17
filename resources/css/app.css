@@ -5,3 +5,86 @@
 [x-cloak] {
     display: none !important;
 }
+
+/*
+ * Sayt bo'yicha o'qish qulayligini oshirish uchun asosiy shrift o'lchami
+ * kattalashtirilgan (16px -> 18px). Tailwind'ning barcha rem-asosidagi
+ * o'lcham utility'lari (text-xs, text-sm, ...) shu qiymatga nisbatan
+ * masshtablanadi, shu sababli butun sayt matni proporsional kattalashadi.
+ */
+html {
+    font-size: 18px;
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 16.5px;
+    }
+}
+
+.bg-institute-photo {
+    background-size: cover;
+    background-position: center;
+}
+
+/*
+ * Butun sayt bo'ylab institut muhitini (bino, hovli, zal) fon sifatida
+ * asta-sekin almashtirib turadigan, sof CSS bilan ishlaydigan slaydshou.
+ * Matn va kartalar ustida joylashgani uchun juda xira (overlay orqali
+ * bosilgan) qilib qo'yilgan — diqqatni chalg'itmaydi, shunchaki fonda
+ * institut muhitini his qildiradi.
+ */
+.site-bg-slideshow {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    background-color: #f8fafc;
+}
+
+.site-bg-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    filter: saturate(72%);
+    animation: site-bg-fade 36s infinite;
+}
+
+.site-bg-slide:nth-child(1) { animation-delay: 0s; }
+.site-bg-slide:nth-child(2) { animation-delay: -9s; }
+.site-bg-slide:nth-child(3) { animation-delay: -18s; }
+.site-bg-slide:nth-child(4) { animation-delay: -27s; }
+
+@keyframes site-bg-fade {
+    0%   { opacity: 0; }
+    4%   { opacity: 1; }
+    21%  { opacity: 1; }
+    25%  { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.site-bg-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.site-bg-overlay--light {
+    background: rgba(248, 250, 252, 0.93);
+}
+
+.site-bg-overlay--dark {
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.82) 55%, rgba(30, 27, 75, 0.9));
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-bg-slide {
+        animation: none;
+        opacity: 0;
+    }
+
+    .site-bg-slide:first-child {
+        opacity: 1;
+    }
+}

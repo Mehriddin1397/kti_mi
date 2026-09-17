@@ -22,7 +22,7 @@
         <div>
             <x-input-label for="phone" :value="__('Telefon raqam (login)')" />
             <x-text-input id="phone" type="text" class="block w-full bg-slate-100 text-slate-500 cursor-not-allowed font-mono" :value="$user->phone" disabled />
-            <p class="text-[11px] text-slate-400 mt-1">Telefon raqamni o'zgartirish uchun adminga murojaat qiling.</p>
+            <p class="text-xs text-slate-400 mt-1">Telefon raqamni o'zgartirish uchun adminga murojaat qiling.</p>
         </div>
 
         <div class="flex items-center gap-4 pt-2">

@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="mb-6 text-center">
-        <h2 class="text-xl font-bold tracking-tight text-slate-900">Tizimga kirish</h2>
-        <p class="text-xs text-slate-500 mt-1">Mustaqil izlanuvchilar va tadqiqotlar monitoringi</p>
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900">Tizimga kirish</h2>
+        <p class="text-sm text-slate-500 mt-1">Mustaqil izlanuvchilar va tadqiqotlar monitoringi</p>
     </div>
 
     <!-- Session Status -->
@@ -22,7 +22,7 @@
                 <x-text-input id="phone" class="block w-full pl-10" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="username" placeholder="+998901234567" />
             </div>
             <x-input-error :messages="$errors->get('phone')" class="mt-1.5" />
-            <p class="text-[11px] text-slate-400 mt-1">Format: +998901234567</p>
+            <p class="text-xs text-slate-400 mt-1">Format: +998901234567</p>
         </div>
 
         <!-- Password -->
