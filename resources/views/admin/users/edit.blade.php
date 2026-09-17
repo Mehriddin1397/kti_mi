@@ -44,15 +44,10 @@
                     </div>
 
                     <div>
-                        <div class="flex items-center justify-between">
-                            <x-input-label for="password" value="Yangi parol" />
-                            @if ($user->initial_password)
-                                <span class="text-xs text-slate-500 mb-1">Joriy parol: <strong class="font-mono text-indigo-700 bg-indigo-50 px-1.5 py-0.5 rounded border border-indigo-100 select-all">{{ $user->initial_password }}</strong></span>
-                            @endif
-                        </div>
+                        <x-input-label for="password" value="Yangi parol" />
                         <x-text-input id="password" name="password" type="text" class="block w-full" placeholder="O'zgartirmasangiz, bo'sh qoldiring" />
                         <x-input-error :messages="$errors->get('password')" class="mt-1.5" />
-                        <p class="text-xs text-slate-400 mt-1">Yangi parol kiritilsa, foydalanuvchining paroli o'zgaradi va admin panelda ko'rinadi.</p>
+                        <p class="text-xs text-slate-400 mt-1">Yangi parol kiritilsa, foydalanuvchining paroli o'zgaradi. Xavfsizlik uchun parol hech qayerda ochiq saqlanmaydi — uni foydalanuvchiga o'zingiz yetkazing.</p>
                     </div>
 
                     <div class="pt-1">

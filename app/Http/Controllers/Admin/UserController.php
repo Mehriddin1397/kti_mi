@@ -50,14 +50,13 @@ class UserController extends Controller
             'full_name' => $validated['full_name'],
             'phone' => $validated['phone'],
             'password' => Hash::make($password),
-            'initial_password' => $password,
             'is_active' => true,
         ]);
 
         $user->assignRole($validated['role']);
 
         $message = "Hurmatli mustaqil izlanuvchi! Siz uchun platformada shaxsiy kabinet yaratildi. Login: {$user->phone} Parol: {$password} Platforma: https://ilm.uzkti.uz Iltimos, login va parolingizni begona shaxslarga bermang.";
-        $sms->send($user->phone, $message, $user);
+        $sms->send($user->phone, $message, $user, "Yangi foydalanuvchi uchun login/parol SMS orqali yuborildi (xavfsizlik uchun parol jurnalda saqlanmaydi).");
 
         return redirect()->route('admin.users.index')
             ->with('status', "Foydalanuvchi yaratildi. Vaqtinchalik parol: {$password}");
@@ -88,7 +87,6 @@ class UserController extends Controller
 
         if (! empty($validated['password'])) {
             $user->password = Hash::make($validated['password']);
-            $user->initial_password = $validated['password'];
         }
 
         $user->save();

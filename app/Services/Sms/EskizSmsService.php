@@ -47,8 +47,10 @@ final class EskizSmsService implements SmsServiceInterface
         );
     }
 
-    public function send(string $phone, string $message, ?User $user = null): bool
+    public function send(string $phone, string $message, ?User $user = null, ?string $logMessage = null): bool
     {
+        $logMessage ??= $message;
+
         $cleanPhone = preg_replace('/[^0-9]/', '', $phone);
         if (strlen($cleanPhone) === 9) {
             $cleanPhone = '998' . $cleanPhone;
@@ -73,7 +75,7 @@ final class EskizSmsService implements SmsServiceInterface
                 SmsLog::create([
                     'user_id' => $user?->id,
                     'phone' => $phone,
-                    'message' => $message,
+                    'message' => $logMessage,
                     'status' => 'xato',
                 ]);
 
@@ -84,7 +86,7 @@ final class EskizSmsService implements SmsServiceInterface
             SmsLog::create([
                 'user_id' => $user?->id,
                 'phone' => $phone,
-                'message' => $message,
+                'message' => $logMessage,
                 'status' => 'yuborildi',
             ]);
 
@@ -94,7 +96,7 @@ final class EskizSmsService implements SmsServiceInterface
             SmsLog::create([
                 'user_id' => $user?->id,
                 'phone' => $phone,
-                'message' => $message,
+                'message' => $logMessage,
                 'status' => 'xato',
             ]);
 

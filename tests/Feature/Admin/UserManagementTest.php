@@ -2,9 +2,11 @@
 
 namespace Tests\Feature\Admin;
 
+use App\Models\SmsLog;
 use App\Models\User;
 use App\Support\Roles;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class UserManagementTest extends TestCase
@@ -36,7 +38,12 @@ class UserManagementTest extends TestCase
         $this->assertNotNull($user);
         $this->assertTrue($user->hasRole(Roles::MASUL_XODIM));
         $this->assertTrue($user->is_active);
-        $this->assertSame('staff12345', $user->initial_password);
+        $this->assertTrue(Hash::check('staff12345', $user->password));
+        $this->assertFalse($user->offsetExists('initial_password'));
+
+        // The plaintext password must never be persisted, including in the SMS log.
+        $log = SmsLog::where('user_id', $user->id)->firstOrFail();
+        $this->assertStringNotContainsString('staff12345', $log->message);
     }
 
     public function test_non_admin_cannot_access_admin_panel(): void

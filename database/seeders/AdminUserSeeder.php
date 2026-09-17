@@ -16,7 +16,6 @@ class AdminUserSeeder extends Seeder
             [
                 'full_name' => 'Bosh Administrator',
                 'password' => Hash::make('admin12345'),
-                'initial_password' => 'admin12345',
                 'is_active' => true,
             ]
         );

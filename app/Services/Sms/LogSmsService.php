@@ -14,14 +14,14 @@ use Illuminate\Support\Facades\Log;
  */
 class LogSmsService implements SmsServiceInterface
 {
-    public function send(string $phone, string $message, ?User $user = null): bool
+    public function send(string $phone, string $message, ?User $user = null, ?string $logMessage = null): bool
     {
         Log::info("[SMS -> {$phone}] {$message}");
 
         SmsLog::create([
             'user_id' => $user?->id,
             'phone' => $phone,
-            'message' => $message,
+            'message' => $logMessage ?? $message,
             'status' => 'yuborildi',
         ]);
 
