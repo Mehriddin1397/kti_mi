@@ -26,7 +26,7 @@
                     <div class="max-w-xl">
                         <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/15 backdrop-blur-md text-amber-200 mb-3 border border-white/10">
                             <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                            O'zbekiston Respublikasi IIV Kriminologiya tadqiqot instituti
+                            O'zbekiston Respublikasi Kriminologiya tadqiqot instituti
                         </span>
                         <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Xush kelibsiz, {{ Auth::user()->full_name }}!</h2>
                         <p class="text-sm text-indigo-100 mt-2 leading-relaxed">

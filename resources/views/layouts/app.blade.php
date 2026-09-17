@@ -90,7 +90,7 @@
                     <div class="flex items-center gap-3">
                         <img src="{{ asset('img/logo-seal.jpg') }}" alt="Logo" class="w-9 h-9 rounded-full ring-1 ring-amber-500/30" />
                         <div>
-                            <span class="font-bold text-slate-800">O'zbekiston Respublikasi IIV Kriminologiya tadqiqot instituti</span>
+                            <span class="font-bold text-slate-800">O'zbekiston Respublikasi Kriminologiya tadqiqot instituti</span>
                             <span class="hidden sm:inline text-slate-400 mx-1.5">&bull;</span>
                             <span class="block sm:inline text-slate-500">Mustaqil izlanuvchilar axborot tizimi</span>
                         </div>

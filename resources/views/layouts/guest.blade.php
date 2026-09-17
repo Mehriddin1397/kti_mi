@@ -36,7 +36,7 @@
                     </div>
                 </a>
                 <span class="text-sm font-semibold text-amber-300 tracking-wider uppercase mt-4">
-                    O'zbekiston Respublikasi IIV
+                    O'zbekiston Respublikasi
                 </span>
                 <h1 class="font-bold text-2xl text-white leading-snug mt-1 drop-shadow-sm">
                     Kriminologiya tadqiqot instituti
@@ -52,7 +52,7 @@
             </div>
 
             <div class="mt-8 text-center text-sm text-slate-300">
-                O'zbekiston Respublikasi IIV Kriminologiya tadqiqot instituti &copy; {{ date('Y') }}
+                O'zbekiston Respublikasi Kriminologiya tadqiqot instituti &copy; {{ date('Y') }}
             </div>
         </div>
     </body>

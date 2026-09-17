@@ -23,7 +23,7 @@
                 <div class="relative z-10 flex items-center gap-4">
                     <img src="{{ asset('img/logo-seal.jpg') }}" alt="Institut logosi" class="w-14 h-14 sm:w-16 sm:h-16 rounded-full ring-2 ring-white/50 shadow-lg bg-white p-0.5 shrink-0" />
                     <div>
-                        <span class="text-xs sm:text-sm font-semibold text-amber-300 uppercase tracking-wider">O'zbekiston Respublikasi IIV</span>
+                        <span class="text-xs sm:text-sm font-semibold text-amber-300 uppercase tracking-wider">O'zbekiston Respublikasi</span>
                         <h2 class="text-xl sm:text-2xl font-bold tracking-tight">Kriminologiya tadqiqot instituti — Ekspertiza bo'limi</h2>
                     </div>
                 </div>
